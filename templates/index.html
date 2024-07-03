@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Article Summarizer</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wikipedia Article Summarizer</h1>
+        <form method="POST" action="{{ url_for('index') }}">
+            <label for="wiki_url">Paste Wikipedia URL:</label>
+            <input type="url" id="wiki_url" name="wiki_url" required>
+            <button type="submit">Summarize</button>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        {% if summary %}
+            <h2>Summary:</h2>
+            <p>{{ summary }}</p>
+            <h3>References:</h3>
+            <p>{{ references }}</p>
+            <p><a href="{{ url }}">Original Article</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+Fork and run replit and run command python main.py
 Made a simple wiki scraper that automaticly summarize articles and hand you your APA citions
 
 ![image](https://github.com/GaoYeGithub/SimpleWikiScraper/assets/152664000/a30451ae-2408-405c-ba05-74f221c5c44a)
